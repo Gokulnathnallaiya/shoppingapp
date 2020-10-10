@@ -10,15 +10,16 @@ function Slider() {
         autoPlayInterval="3000"
         className="images"
       >
-        <img
-          src="https://i.ibb.co/PFWfBcy/Baby-Apparel-Etsy-Banner.png"
-          className="sliderimg"
-          alt="banner1"
-        />
+        
         <img
           src="https://rukminim1.flixcart.com/flap/844/140/image/1d42a4fc5c672191.jpg?q=100"
           className="sliderimg"
           alt="banner2"
+        />
+        <img
+          src="https://i.ibb.co/PFWfBcy/Baby-Apparel-Etsy-Banner.png"
+          className="sliderimg"
+          alt="banner1"
         />
       </AliceCarousel>
     </div>

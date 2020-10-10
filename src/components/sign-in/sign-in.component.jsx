@@ -36,7 +36,7 @@ class SignIn extends React.Component {
       .then((response) => {
         const {setCurrentUser,history} =this.props
         if (response.data.success === 1) {
-          setCurrentUser({email});
+          setCurrentUser(email);
           this.setState({ loading: false });
           history.push({
             pathname: "/",
