@@ -22,9 +22,12 @@
     border: 1px solid black;
   }
 
-  &.google-sign-in {
-    background-color: #4285f4;
+  &.buynow {
+    background-color: rgb(248, 122, 3);
     color: white;
+    margin-top: 20px;
+    
+    
 
     &:hover {
       background-color: #357ae8;

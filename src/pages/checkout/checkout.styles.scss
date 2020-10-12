@@ -28,6 +28,13 @@
     margin-left: auto;
     font-size: 36px;
   }
+  .buybutton{
+    
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
 }
 @media only screen and (max-width: 900px) {
   

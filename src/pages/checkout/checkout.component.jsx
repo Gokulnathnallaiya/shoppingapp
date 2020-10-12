@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-
+import CustomButton from '../../components/custom-button/custom-button.component';
 import {
   selectCartItems,
   selectCartTotal
@@ -33,7 +33,12 @@ const CheckoutPage = ({ cartItems, total }) => (
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
+    <div className='buybutton'>
     <div className='total'>TOTAL: ₹ {total}</div>
+    
+    <CustomButton buynow >Buy now</CustomButton>
+    </div>
+    
   </div>
 );
 
