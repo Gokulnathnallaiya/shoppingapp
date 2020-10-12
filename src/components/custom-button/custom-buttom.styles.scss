@@ -22,12 +22,10 @@
     border: 1px solid black;
   }
 
-  &.buynow {
-    background-color: rgb(70, 149, 214);
+  &.google-sign-in {
+    background-color: #4285f4;
     color: white;
-    margin-left:20px;
-    
-    
+    margin-left:10px;
 
     &:hover {
       background-color: #357ae8;
@@ -51,7 +49,7 @@
 @media only screen and (max-width: 750px){
 
   .custom-button{
-    min-width: 75px;
+    min-width: 60px;
     font-size: 13px;
     letter-spacing: 0.2px;
     line-height: 20px;

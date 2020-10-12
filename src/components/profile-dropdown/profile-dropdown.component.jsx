@@ -8,6 +8,7 @@ import { toggleCartHidden,toggleProfileHidden} from '../../redux/cart/cart.actio
 
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {setCurrentUser} from "../../redux/user/user.actions";
+import { auth } from '../../firebase/firebase.utils';
 
 import "./profile-dropdown.styles.scss";
 
@@ -22,7 +23,7 @@ const ProfileDropDown = ({ currentUser,setCurrentUser,toggleProfileHidden }) => 
       <h4>{currentUser}</h4>
     </div>
     {currentUser ? (
-        <div className='option' onClick={() => setCurrentUser(null)}>
+        <div className='option' onClick={() => {setCurrentUser(null);auth.signOut()}}>
           SIGN OUT
         </div>
       ) : (

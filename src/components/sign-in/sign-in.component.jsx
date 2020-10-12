@@ -8,7 +8,7 @@ import axios from "axios";
 //redux
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../redux/user/user.actions";
-
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import "./sign-in.styles.scss";
 
 class SignIn extends React.Component {
@@ -19,6 +19,19 @@ class SignIn extends React.Component {
       email: "",
       password: "",
     };
+  }
+
+  componentDidMount() {
+    const { setCurrentUser } = this.props;
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        setCurrentUser(userAuth.email)
+      }
+    });
+  }
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   handleSubmit = async (event) => {
@@ -62,12 +75,7 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
 
-  googlelogin = () => {
-    console.log("clicked");
-    axios.get('https://express-sql-app.herokuapp.com/auth/google',{
-      headers: {"Access-Control-Allow-Origin": "*"}
-    })
-  };
+ 
 
   render() {
     return (
@@ -92,13 +100,14 @@ class SignIn extends React.Component {
             label="password"
             required
           />
-          <div className="buttons">
-            <CustomButton type="submit"> Sign in </CustomButton>
-          </div>
+          
         </form>
-        <CustomButton googlesignin onClick={this.googlelogin}>
-          Google signin
-        </CustomButton>
+        <div className='buttons'>
+            <CustomButton type='submit'> Sign in </CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </CustomButton>
+          </div>
       </div>
     );
   }
