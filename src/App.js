@@ -12,13 +12,13 @@ import CheckoutPage from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
-import googleUrl from "./google-auth/google-auth";
+
 class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <a href={googleUrl}>Login with Google</a>
+        
         <Switch>
           <Route exact path="/" component={ShopPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
