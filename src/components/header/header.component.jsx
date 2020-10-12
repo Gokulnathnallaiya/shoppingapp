@@ -22,7 +22,7 @@ const Header = ({ currentUser, cartHidden,setCurrentUser,profileHidden }) => (
         HOME
       </Link>
       
-      {currentUser ? (
+      {/* {currentUser ? (
         <div className='option' onClick={() => setCurrentUser(null)}>
           SIGN OUT
         </div>
@@ -30,7 +30,7 @@ const Header = ({ currentUser, cartHidden,setCurrentUser,profileHidden }) => (
         <Link className='option' to='/signin'>
           SIGN IN
         </Link>
-      )} 
+      )}  */}
       <CartIcon />
 
     </div>

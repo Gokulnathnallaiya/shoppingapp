@@ -6,20 +6,16 @@ function Slider() {
   return (
     <div className="container">
       <AliceCarousel
-        autoPlay
-        autoPlayInterval="3000"
-        className="images"
-      >
         
+        autoPlay
+        disableButtonsControls
+        autoPlayInterval="3000"
+        
+      >
         <img
-          src="https://rukminim1.flixcart.com/flap/844/140/image/1d42a4fc5c672191.jpg?q=100"
+          src="https://assetscdn1.paytm.com/images/catalog/view_item/621452/1602242761678.jpg?imwidth=1600&impolicy=hq"
           className="sliderimg"
           alt="banner2"
-        />
-        <img
-          src="https://i.ibb.co/PFWfBcy/Baby-Apparel-Etsy-Banner.png"
-          className="sliderimg"
-          alt="banner1"
         />
       </AliceCarousel>
     </div>

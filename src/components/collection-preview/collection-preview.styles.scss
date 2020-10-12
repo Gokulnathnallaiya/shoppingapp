@@ -11,5 +11,19 @@
   .preview {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    width:100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  
+  .collection-preview{
+    margin-bottom: 10px;
+
+    .title{
+      font-size: 20px;
+      margin:10px;
+    }
   }
 }

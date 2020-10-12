@@ -1,13 +1,19 @@
 .container{
-    width:90vw;
-    height:40vh;
-   
-    img{
-        width: 95vw;
-      height: 40vh;
-      object-fit: cover;
-      overflow: hidden;
-    }
-    
-    
+
+  width:100px;
+  height:100px;
+
+.sliderimg{
+ 
+  width: 90vw;
+  height:250px;
+  object-fit: cover
+}
+.alice-carousel{
+  width:90vw;
+  height:200px;
+ 
+  
+
+}
 }

@@ -4,17 +4,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  
- 
-  
-  
-  
 
   .logo-container {
     height: 40px;
     width: 40px;
-    margin:5px;
-    
+    margin: 5px;
   }
 
   .options {
@@ -28,9 +22,21 @@
       padding: 10px 15px;
       cursor: pointer;
       font-weight: bolder;
+
+      &:hover{
+
+        color:green;
+        
+        
+
+      }
     }
   }
-
-  
 }
 
+@media only screen and (max-width: 900px) {
+  
+  .options{
+    width:100%;
+  }
+}
