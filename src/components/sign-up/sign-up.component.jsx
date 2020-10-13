@@ -29,7 +29,7 @@ class SignUp extends React.Component {
     try {
       this.setState({ loading: true });
       axios
-        .post("https://express-sql-app.herokuapp.com/signup", {
+        .post("https://express-sql-app.herokuapp.com/user/signup", {
           name: displayName,
           email: email,
           password: password,

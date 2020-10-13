@@ -1,64 +1,66 @@
 .profile-dropdown {
-    align-items: center;
-    position: absolute;
-    width: 240px;
+  align-items: center;
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  background-color: rgb(226, 222, 216);
+  top: 75px;
+  right: 10px;
+  z-index: 5;
+
+  .empty-message {
+    font-size: 18px;
+    margin: 50px auto;
+  }
+
+  .cart-items {
     height: 240px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    
-    background-color:  rgb(226, 222, 216);
-    top: 75px;
-    right: 10px;
-    z-index: 5;
-  
-    .empty-message {
-      font-size: 18px;
-      margin: 50px auto;
-    }
-  
-    .cart-items {
-      height: 240px;
-      display: flex;
-      flex-direction: column;
-      overflow: scroll;
-    }
-  
-    button {
-      margin-top: auto;
-    }
-    .avatar {
-        vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        padding:1px;
-      
-        
-        
-      }
-      img {
-        border: 1px solid #555;
-        margin:10px;
-        cursor: pointer;
-      }
-    .option{
-
-        cursor: pointer;
-
-    }
+    overflow: scroll;
   }
+
+  button {
+    margin-top: auto;
+  }
+  .avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 1px;
+  }
+  img {
+    border: 1px solid #555;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .option {
+    cursor: pointer;
+  }
+}
+.profile-dropdown ::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid rgb(226, 222, 216);
+
+  position: absolute;
+  top: -10px;
+  right: 40px;
+}
+@media only screen and (max-width: 750px) {
   .profile-dropdown ::before {
-    content: "";
-    width: 0; 
-    height: 0; 
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid  rgb(226, 222, 216);
     
-    
+  
     position: absolute;
     top: -10px;
     right: 17px;
+  }
 }
-  

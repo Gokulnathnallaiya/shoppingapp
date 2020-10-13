@@ -11,6 +11,11 @@ import { setCurrentUser } from "../../redux/user/user.actions";
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import "./sign-in.styles.scss";
 
+//toast
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +32,7 @@ class SignIn extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         setCurrentUser(userAuth.email)
+        toast("Login Successfull", { type: "success" });
       }
     });
   }
@@ -36,12 +42,12 @@ class SignIn extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("entered")
     const { email, password } = this.state;
 
     try {
       axios
-        .post("https://express-sql-app.herokuapp.com/login", {
+        .post("https://express-sql-app.herokuapp.com/user/login", {
           email: email,
           password: password,
         })
@@ -53,9 +59,10 @@ class SignIn extends React.Component {
             history.push({
               pathname: "/",
             });
+            toast("Login Successfull", { type: "success" });
           } else {
             this.setState({ loading: false });
-            alert("Invalid Login Credentials");
+            toast("Login failed", { type: "error" });
           }
         })
         .catch((err) => {
@@ -100,12 +107,13 @@ class SignIn extends React.Component {
             label="password"
             required
           />
+          <CustomButton type='submit'> Sign in </CustomButton>
+          
           
         </form>
         <div className='buttons'>
-            <CustomButton type='submit'> Sign in </CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              Sign in with Google
+              Google Sign in
             </CustomButton>
           </div>
       </div>

@@ -1,17 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import {
   selectCartItems,
   selectCartTotal
 } from '../../redux/cart/cart.selectors';
-
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './checkout.styles.scss';
 
-const CheckoutPage = ({ cartItems, total }) => (
+toast.configure();
+
+
+const CheckoutPage = ({ cartItems, total }) => {
+
+
+  async function handleToken(token, addresses) {
+    const response = await axios.post(
+      "http://localhost:8000/checkout",
+      { token, total }
+    );
+    const { status } = response.data;
+    console.log("Response:", response.data);
+    if (status === "success") {
+      toast("Success! Check email for details", { type: "success" });
+    } else {
+      toast("Something went wrong", { type: "error" });
+    }
+  }
+
+  
+
+
+
+  return(
   <div className='checkout-page'>
     <div className='checkout-header'>
       <div className='header-block'>
@@ -36,11 +62,22 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className='buybutton'>
     <div className='total'>TOTAL: ₹ {total}</div>
     
-    <CustomButton buynow >Buy now</CustomButton>
+    <StripeCheckout
+        stripeKey="pk_test_51HbevCJNorcZJykENCUggOji2DKzPxgKy4TSeiQ1HteN8S566laJeHUj9L3dZZThVih4aRobWgErUwYXbIw3X4r700R4oE2Qst"
+        token={handleToken}
+        amount={total}
+        name="Woo commerce"
+        billingAddress
+        shippingAddress>
+        <CustomButton>Buy now</CustomButton>
+
+        </StripeCheckout>
+        
+      
     </div>
     
   </div>
-);
+)};
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
