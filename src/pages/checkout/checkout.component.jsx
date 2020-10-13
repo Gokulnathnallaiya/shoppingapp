@@ -21,13 +21,13 @@ const CheckoutPage = ({ cartItems, total }) => {
 
   async function handleToken(token, addresses) {
     const response = await axios.post(
-      "http://localhost:8000/checkout",
+      "https://express-sql-app.herokuapp.com/checkout",
       { token, total }
     );
     const { status } = response.data;
     console.log("Response:", response.data);
     if (status === "success") {
-      toast("Success! Check email for details", { type: "success" });
+      toast("Order placed! Check email for details", { type: "success" });
     } else {
       toast("Something went wrong", { type: "error" });
     }
@@ -74,6 +74,15 @@ const CheckoutPage = ({ cartItems, total }) => {
         </StripeCheckout>
         
       
+    </div>
+
+    <div className="disclaimer">
+      
+    
+
+      <span>*use address outside india for  test</span>
+      <span>, use card number 4242424242424242</span>
+      <span> and any future date/ any 3 digit cvv</span>
     </div>
     
   </div>
