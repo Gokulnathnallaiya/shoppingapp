@@ -16,18 +16,21 @@ import './checkout.styles.scss';
 toast.configure();
 
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems, total ,history}) => {
 
 
   async function handleToken(token, addresses) {
+    const products = cartItems;
+    console.log(products)
     const response = await axios.post(
-      "https://express-sql-app.herokuapp.com/checkout",
-      { token, total }
+      "http://localhost:8000/checkout",
+      { token, total, products }
     );
-    const { status } = response.data;
-    console.log("Response:", response.data);
+    console.log(response.data)
+    const { status} = response.data; 
     if (status === "success") {
       toast("Order placed! Check email for details", { type: "success" });
+      history.push({pathname:'/ordersummary',state: { orderDetails: response.data }})
     } else {
       toast("Something went wrong", { type: "error" });
     }

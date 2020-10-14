@@ -8,6 +8,7 @@ import "./App.css";
 import ShopPage from "./pages/shop/shop.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
+import OrderSummary from "./pages/order-summary/order-summary.component";
 
 import Header from "./components/header/header.component";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -33,6 +34,7 @@ class App extends React.Component {
               )
             }
           />
+          <Route exact path="/ordersummary" component={OrderSummary}/>
         </Switch>
       </div>
     );

@@ -9,10 +9,10 @@ import {
 
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem,ordersummary }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
-    <div className='checkout-item'>
+    <div className={ordersummary?'ordersummary':'checkout-item'}>
       <div className='image-container'>
         <img src={imageUrl} alt='item' />
       </div>
@@ -27,9 +27,10 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
         </div>
       </span>
       <span className='price'>{ "₹ "+ price}</span>
+      { ordersummary?null:
       <div className='remove-button' onClick={() => clearItem(cartItem)}>
         &#10005;
-      </div>
+      </div>}
     </div>
   );
 };

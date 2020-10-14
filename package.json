@@ -9,6 +9,7 @@
     "query-string": "^6.13.5",
     "react": "^16.8.6",
     "react-alice-carousel": "^2.0.1",
+    "react-crude-animated-tick": "^1.0.2",
     "react-dom": "^16.8.6",
     "react-elastic-carousel": "^0.9.0",
     "react-google-login": "^5.1.21",
