@@ -23,7 +23,7 @@ const CheckoutPage = ({ cartItems, total ,history}) => {
     const products = cartItems;
     console.log(products)
     const response = await axios.post(
-      "http://localhost:8000/checkout",
+      "https://express-sql-app.herokuapp.com/checkout",
       { token, total, products }
     );
     console.log(response.data)
